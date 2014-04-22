@@ -13,11 +13,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import pbr.packaging
-import pbr.version
 
 
-version_info = pbr.version.VersionInfo('zaqar')
+class VersionInfo(object):
+    release = "REDHATRELEASE"
+    version = "REDHATVERSION"
+
+    def version_string(self):
+        return self.version
+
+    def cached_version_string(self):
+        return self.version
+
+    def release_string(self):
+        return self.release
+
+    def canonical_version_string(self):
+        return self.version
+
+    def version_string_with_vcs(self):
+        return self.release
+
+
+version_info = VersionInfo()
 
 
 def verify_sha(expected):
